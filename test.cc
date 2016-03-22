@@ -3,32 +3,32 @@
 
 namespace Nu {
 
-    template<typename Type>
-    struct Alpha
+  template<typename Type>
+  struct Alpha
+  {
+    struct Beta
     {
-        struct Beta
-        {
-            void func() {
-                print_stacktrace();
-            }
-            void func(Type) {
-                print_stacktrace();
-            }
-        };
+      void func() {
+          print_stacktrace();
+      }
+      void func(Type) {
+          print_stacktrace();
+      }
     };
+  };
 
-    struct Gamma
-    {
-        template <int N>
-        void unroll(double d) {
-            unroll<N-1>(d);
-        }
-    };
-
-    template<>
-    void Gamma::unroll<0>(double) {
-        print_stacktrace();
+  struct Gamma
+  {
+    template <int N>
+    void unroll(double d) {
+        unroll<N-1>(d);
     }
+  };
+
+  template<>
+  void Gamma::unroll<0>(double) {
+      print_stacktrace();
+  }
 
 } // namespace Nu
 
